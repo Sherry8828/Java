@@ -9,4 +9,8 @@ public class MyConfiguration {
     public Printer myPrinter() {
         return  new HpPrinter();
     }
+    @Bean
+    public Printer yourPrinter() {
+        return new CanonPrinter();
+    }
 }
