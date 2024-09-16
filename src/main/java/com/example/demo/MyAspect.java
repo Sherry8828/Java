@@ -7,6 +7,8 @@ import org.aspectj.lang.annotation.Aspect;
 import org.aspectj.lang.annotation.Before;
 import org.springframework.stereotype.Component;
 
+import java.util.Date;
+
 @Aspect
 @Component
 public class MyAspect {
@@ -23,11 +25,15 @@ public class MyAspect {
 
     @Around("execution(* com.example.demo.HpPrinter.*(..))")
     public Object around(ProceedingJoinPoint joinPoint) throws Throwable{
+        Date start = new Date();
         System.out.println("around before");
         //執行切入點的方法
         Object proceed = joinPoint.proceed();
 
         System.out.println("around after");
+        Date end = new Date();
+        long diff = end.getTime() - start.getTime();
+        System.out.println("總共執行了"+diff+"ms");
         return proceed;
     }
 }
