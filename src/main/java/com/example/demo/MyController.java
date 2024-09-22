@@ -39,6 +39,16 @@ public class MyController {
         throw new IllegalArgumentException("test7 error");
 
     }
+    @RequestMapping("/test8")
+    public String test8() {
+        System.out.println("test8");
+        return "Hello World! test8";
+    }
 
+    @RequestMapping("/test9")
+    public String test9() {
+        System.out.println("test9");
+        return "Hello World! test9";
+    }
 
 }
