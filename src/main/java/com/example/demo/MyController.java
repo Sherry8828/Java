@@ -16,16 +16,28 @@ public class MyController {
 
 
     @RequestMapping("/test")
-    public String test(){
+    public String test() {
         System.out.println("Hi!");
         printer.print("Hello 你好嗎");
         return "Hello World!";
     }
 
     @RequestMapping("/test5")
-    public ResponseEntity<String> test5(){
+    public ResponseEntity<String> test5() {
 
         return ResponseEntity.status(HttpStatus.ACCEPTED).body("Hello World!");
+    }
+
+    @RequestMapping("/test6")
+    public String test6() {
+        throw new RuntimeException("test6 error");
+
+    }
+
+    @RequestMapping("/test7")
+    public String test7() {
+        throw new IllegalArgumentException("test7 error");
+
     }
 
 
