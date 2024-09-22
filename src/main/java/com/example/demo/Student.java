@@ -1,11 +1,24 @@
 package com.example.demo;
 
+import jakarta.validation.constraints.NotBlank;
+import jakarta.validation.constraints.NotEmpty;
+import jakarta.validation.constraints.NotNull;
+
 import java.util.List;
 
 public class Student {
+    @NotNull
     Integer id;
+
+    @NotBlank
     String name;
     Double score;
+    boolean graduated;
+    Integer age;
+    @NotEmpty
+    List<String> courseList;
+    Pet pet;
+    List<Pet> petList;
 
     public Integer getId() {
         return id;
@@ -71,9 +84,5 @@ public class Student {
         this.petList = petList;
     }
 
-    boolean graduated;
-    Integer age;
-    List<String> courseList;
-    Pet pet;
-    List<Pet> petList;
+
 }
