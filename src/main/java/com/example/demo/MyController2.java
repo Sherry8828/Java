@@ -38,4 +38,10 @@ public class MyController2 {
         return "test2";
     }
 
+    @RequestMapping("/test3")
+    public String test3(@RequestHeader String info){
+        System.out.println("info "+info);
+        return "test3";
+    }
+
 }
