@@ -1,6 +1,8 @@
 package com.example.demo;
 
+import org.springframework.boot.context.properties.bind.DefaultValue;
 import org.springframework.web.bind.annotation.RequestMapping;
+import org.springframework.web.bind.annotation.RequestParam;
 import org.springframework.web.bind.annotation.RestController;
 
 import java.util.ArrayList;
@@ -23,6 +25,12 @@ public class MyController2 {
         Student student = new Student();
         student.setName("Judy");
         return student;
+    }
+    @RequestMapping("/test1")
+    public String test1(@RequestParam(defaultValue = "10",name = "qq") Integer id, @RequestParam String name){
+        System.out.println("id"+id);
+        System.out.println("name"+name);
+        return "test1";
     }
 
 }
