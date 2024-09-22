@@ -10,8 +10,8 @@ import org.springframework.web.servlet.HandlerInterceptor;
 public class MyInterceptor implements HandlerInterceptor {
     @Override
     public boolean preHandle(HttpServletRequest request, HttpServletResponse response, Object handler) throws Exception {
-        System.out.println("MyInterceptor.preHandle");
-        response.setStatus(401);
-        return false;
+       /* System.out.println("MyInterceptor.preHandle");
+        response.setStatus(401);*/
+        return true;
     }
 }

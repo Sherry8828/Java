@@ -2,12 +2,19 @@ package com.example.demo;
 
 import jakarta.validation.Valid;
 import jakarta.validation.constraints.Min;
+import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.jdbc.core.namedparam.NamedParameterJdbcTemplate;
 import org.springframework.validation.annotation.Validated;
 import org.springframework.web.bind.annotation.*;
+
+import java.util.HashMap;
+import java.util.Map;
 
 @RestController
 @Validated
 public class StudentController {
+    @Autowired
+    private NamedParameterJdbcTemplate namedParameterJdbcTemplate;
     //限制前端使用post的方法，二擇一都可以
     @PostMapping("/students")
     //@RequestMapping(value = "/students",method = RequestMethod.POST)
@@ -35,4 +42,14 @@ public class StudentController {
 
         return "資料庫delete";
     }
+
+
+    @PostMapping("/insertstudents")
+    public String insert() {
+        Map<String, Object> map = new HashMap<>();
+        namedParameterJdbcTemplate.update("INSERT INTO student(id,name) VALUE (3,'John')",map);
+
+        return "資料庫insert";
+    }
+
 }
